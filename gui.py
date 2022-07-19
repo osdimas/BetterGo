@@ -1,8 +1,12 @@
-import dearpygui.dearpygui as dpg
-import helper as h
-import random, time
+import random
+import time
 
-class GUI():
+import dearpygui.dearpygui as dpg
+
+import helper as h
+
+
+class GUI:
     def __init__(self) -> None:
         self.v1 = self.get_random_string()
         
@@ -54,22 +58,22 @@ class GUI():
                 dpg.add_checkbox(label='No Flash', tag='noflash_checkbox')
                 dpg.add_slider_float(label='No Flash Strength', default_value=255.0, min_value=0.0, max_value=255.0, width=215, tag='noflash_strength')
                 dpg.add_slider_int(label='FOV', default_value=90, min_value=60, max_value=160, width=215, tag='fov')
-                dpg.add_combo(label='Sky', items=list(h.sky_list), default_value='', width=215, tag='sky_name')
+                # dpg.add_combo(label='Sky', items=list(h.sky_list), default_value='', width=215, tag='sky_name')
             with dpg.collapsing_header(label='Misc', tag='misc_header'):
                 dpg.add_checkbox(label='Auto Pistol', tag='autopistol_checkbox')
                 dpg.add_combo(label='Key', items=tuple(h.gui_keys_list.keys()), default_value='MOUSE 4', width=215, tag='autopistol_key')
-                dpg.add_checkbox(label='Radar Hack', tag='radarhack_checkbox')
+                # dpg.add_checkbox(label='Radar Hack', tag='radarhack_checkbox')
                 dpg.add_checkbox(label='Hit Sound', tag='hitsound_checkbox')
                 dpg.add_checkbox(label='BunnyHop', tag='bunnyhop_checkbox')
-                dpg.add_checkbox(label='Auto Strafer', tag='auto_strafer_checkbox')
-                dpg.add_checkbox(label='Auto Zeus', tag='auto_zeus_checkbox')
-                dpg.add_checkbox(label='Knife Bot', tag='knifebot_checkbox')
-                dpg.add_checkbox(label='No Smoke', tag='nosmoke_checkbox')
-                dpg.add_checkbox(label='Show FPS', tag='fps_checkbox')
-                dpg.add_checkbox(label='Chat Spam', tag='chat_spam_checkbox')
-                dpg.add_input_text(label='Command', width=215, tag='chat_spam_input')
-                dpg.add_checkbox(label='Fake Lag', tag='fakelag_checkbox')
-                dpg.add_slider_float(label='Fake Lag Strength', default_value=0.001, min_value=0.001, max_value=0.016, width=215, tag='fakelag_strength')
+                # dpg.add_checkbox(label='Auto Strafer', tag='auto_strafer_checkbox')
+                # dpg.add_checkbox(label='Auto Zeus', tag='auto_zeus_checkbox')
+                # dpg.add_checkbox(label='Knife Bot', tag='knifebot_checkbox')
+                # dpg.add_checkbox(label='No Smoke', tag='nosmoke_checkbox')
+                # dpg.add_checkbox(label='Show FPS', tag='fps_checkbox')
+                # dpg.add_checkbox(label='Chat Spam', tag='chat_spam_checkbox')
+                # dpg.add_input_text(label='Command', width=215, tag='chat_spam_input')
+                # dpg.add_checkbox(label='Fake Lag', tag='fakelag_checkbox')
+                # dpg.add_slider_float(label='Fake Lag Strength', default_value=0.001, min_value=0.001, max_value=0.016, width=215, tag='fakelag_strength')
             
             dpg.add_button(label='Players Info (Console)', width=160, height=25, tag='players_info_button')
             dpg.add_button(label='Unload', width=160, height=25, tag='unload_button')
@@ -93,13 +97,13 @@ class GUI():
                 dpg.hide_item('humanization_checkbox') if dpg.get_value('triggerbot_checkbox') == False else dpg.show_item('humanization_checkbox')
                 dpg.hide_item('triggerbot_key') if dpg.get_value('triggerbot_checkbox') == False else dpg.show_item('triggerbot_key')
                 dpg.hide_item('triggerbot_delay') if dpg.get_value('triggerbot_checkbox') == False else dpg.show_item('triggerbot_delay')
-                dpg.hide_item('autopistol_key') if dpg.get_value('autopistol_checkbox') == False else dpg.show_item('autopistol_key')
-                dpg.hide_item('auto_strafer_checkbox') if dpg.get_value('bunnyhop_checkbox') == False else dpg.show_item('auto_strafer_checkbox')
-                dpg.hide_item('chat_spam_input') if dpg.get_value('chat_spam_checkbox') == False else dpg.show_item('chat_spam_input')
-                dpg.hide_item('fakelag_strength') if dpg.get_value('fakelag_checkbox') == False else dpg.show_item('fakelag_strength')
-                dpg.hide_item('nightmode_strength') if dpg.get_value('nightmode_checkbox') == False else dpg.show_item('nightmode_strength')
-                dpg.hide_item('noflash_strength') if dpg.get_value('noflash_checkbox') == False else dpg.show_item('noflash_strength')
-                
+                # dpg.hide_item('autopistol_key') if dpg.get_value('autopistol_checkbox') == False else dpg.show_item('autopistol_key')
+                # dpg.hide_item('auto_strafer_checkbox') if dpg.get_value('bunnyhop_checkbox') == False else dpg.show_item('auto_strafer_checkbox')
+                # dpg.hide_item('chat_spam_input') if dpg.get_value('chat_spam_checkbox') == False else dpg.show_item('chat_spam_input')
+                # dpg.hide_item('fakelag_strength') if dpg.get_value('fakelag_checkbox') == False else dpg.show_item('fakelag_strength')
+                # dpg.hide_item('nightmode_strength') if dpg.get_value('nightmode_checkbox') == False else dpg.show_item('nightmode_strength')
+                # dpg.hide_item('noflash_strength') if dpg.get_value('noflash_checkbox') == False else dpg.show_item('noflash_strength')
+                #
                 x1 = dpg.get_viewport_width()
                 y1 = dpg.get_viewport_height()
                 if x1 != x2 or y1 != y2:

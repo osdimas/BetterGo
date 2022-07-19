@@ -5,7 +5,7 @@ import memory
 # https://github.com/frk1/hazedumper/blob/master/config.json
 
 try:
-    dwGlowObjectManager =  memory.get_sig('client.dll', rb'\xA1....\xA8\x01\x75\x4B', 4, 1)
+    dwGlowObjectManager = memory.get_sig('client.dll', rb'\xA1....\xA8\x01\x75\x4B', 4, 1)
     m_bDormant = memory.get_sig('client.dll', rb'\x8A\x81....\xC3\x32\xC0', 8, 2, False)
     # anim_overlays = memory.get_sig('client.dll', rb'\x8B\x89....\x8D\x0C\xD1', 0, 2, False)
     # clientstate_delta_ticks = memory.get_sig('engine.dll', rb'\xC7\x87........\xFF\x15....\x83\xC4\x08', 0, 2, False)
@@ -23,16 +23,21 @@ try:
     # dwClientState_IsHLTV = memory.get_sig('engine.dll', rb'\x80\xBF.....\x0F\x84....\x32\xDB', 0, 2, False)
     dwClientState_Map = memory.get_sig('engine.dll', rb'\x05....\xC3\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xA1', 0, 1, False)
     dwClientState_MapDirectory = memory.get_sig('engine.dll', rb'\xB8....\xC3\x05....\xC3', 0, 7, False)
-    dwClientState_MaxPlayer = memory.get_sig('engine.dll', rb'\xA1....\x8B\x80....\xC3\xCC\xCC\xCC\xCC\x55\x8B\xEC\x8A\x45\x08', 0, 7, False)
+    dwClientState_MaxPlayer = memory.get_sig('engine.dll',
+                                             rb'\xA1....\x8B\x80....\xC3\xCC\xCC\xCC\xCC\x55\x8B\xEC\x8A\x45\x08', 0, 7,
+                                             False)
     dwClientState_PlayerInfo = memory.get_sig('engine.dll', rb'\x8B\x89....\x85\xC9\x0F\x84....\x8B\x01', 0, 2, False)
     dwClientState_State = memory.get_sig('engine.dll', rb'\x83\xB8.....\x0F\x94\xC0\xC3', 0, 2, False)
-    dwClientState_ViewAngles = memory.get_sig('engine.dll', rb'\xF3\x0F\x11\x86....\xF3\x0F\x10\x44\x24.\xF3\x0F\x11\x86', 0, 4, False)
+    dwClientState_ViewAngles = memory.get_sig('engine.dll',
+                                              rb'\xF3\x0F\x11\x86....\xF3\x0F\x10\x44\x24.\xF3\x0F\x11\x86', 0, 4,
+                                              False)
     dwEntityList = memory.get_sig('client.dll', rb'\xBB....\x83\xFF\x01\x0F\x8C....\x3B\xF8', 0, 1)
     # dwGameDir = memory.get_sig('engine.dll', rb'\x68....\x8D\x85....\x50\x68....\x68', 0, 1)
     # dwGameRulesProxy = memory.get_sig('client.dll', rb'\xA1....\x85\xC0\x0F\x84....\x80\xB8.....\x74\x7A', 0, 1)
     dwGlobalVars = memory.get_sig('engine.dll', rb'\x68....\x68....\xFF\x50\x08\x85\xC0', 0, 1)
     # dwInput = memory.get_sig('client.dll', rb'\xB9....\xF3\x0F\x11\x04\x24\xFF\x50\x10', 0, 1)
-    dwLocalPlayer = memory.get_sig('client.dll', rb'\x8D\x34\x85....\x89\x15....\x8B\x41\x08\x8B\x48\x04\x83\xF9\xFF', 4, 3)
+    dwLocalPlayer = memory.get_sig('client.dll', rb'\x8D\x34\x85....\x89\x15....\x8B\x41\x08\x8B\x48\x04\x83\xF9\xFF',
+                                   4, 3)
     # dwMouseEnable = memory.get_sig('client.dll', rb'\xB9....\xFF\x50\x34\x85\xC0\x75\x10', 48, 1)
     # dwMouseEnablePtr = memory.get_sig('client.dll', rb'\xB9....\xFF\x50\x34\x85\xC0\x75\x10', 0, 1)
     dwPlayerResource = memory.get_sig('client.dll', rb'\x8B\x3D....\x85\xFF\x0F\x84....\x81\xC7', 0, 2)
@@ -45,8 +50,12 @@ try:
     interface_engine_cvar = memory.get_sig('vstdlib.dll', rb'\x8B\x0D....\xC7\x05', 0, 2)
     is_c4_owner = 0x3C8110
     m_flSpawnTime = 0x103C0
-    dwbSendPackets = memory.get_sig('engine.dll', rb'\xB3\x01\x8B\x01\x8B\x40\x10\xFF\xD0\x84\xC0\x74\x0F\x80\xBF.....\x0F\x84', 1, 0, False, True)
-    Cmd_ExecuteCommand = memory.get_sig('engine.dll', rb'\x55\x8B\xEC\x8B\x0D....\x81\xF9....\x75\x0C\xA1....\x35....\xEB\x05\x8B\x01\xFF\x50\x34\x50', 0, 0, False, True)
+    dwbSendPackets = memory.get_sig('engine.dll',
+                                    rb'\xB3\x01\x8B\x01\x8B\x40\x10\xFF\xD0\x84\xC0\x74\x0F\x80\xBF.....\x0F\x84', 1, 0,
+                                    False, True)
+    Cmd_ExecuteCommand = memory.get_sig('engine.dll',
+                                        rb'\x55\x8B\xEC\x8B\x0D....\x81\xF9....\x75\x0C\xA1....\x35....\xEB\x05\x8B\x01\xFF\x50\x34\x50',
+                                        0, 0, False, True)
     # 55 8B EC 8B 0D ? ? ? ? 81 F9 ? ? ? ? 75 0C A1 ? ? ? ? 35 ? ? ? ? EB 05 8B 01 FF 50 34 50 
     # netvars
     cs_gamerules_data = 0x0
